@@ -7,7 +7,6 @@ export default async function Home() {
         <div className="card-of-info"> Detailed Box of TEXT!!! </div>
         <div className="card-of-info font-inter"> Detailed Box of TEXT!!! (inter)</div>
         <div className="card-of-info font-diff"> Detailed Box of TEXT!!! (diff)</div>
-
       </>
     </div>
   );

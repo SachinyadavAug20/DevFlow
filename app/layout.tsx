@@ -20,7 +20,10 @@ const logofont = localFont({
 
 export const metadata: Metadata = {
   title: "DevFlow",
-  description: "For students to learn and grow",
+  description: "DevFlow provides a platform for jr collge students to directly connect to seniors ofthere college and get answer to there query from the trusted and relaible source.Explore topic like study material, suggested course, best practice, mistakes to avoid, roadmaps to follow and more.",
+  icons:{
+    icon:'/images/site-logo.svg'
+  }
 };
 
 export default function RootLayout({
