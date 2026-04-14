@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <div>
       <>
-        <div className="font-logofont border flex justify-between items-center px-4 border-amber-300 rounded-1.5 font-bold text-6xl">
+        <div className="font-logofont border flex-between px-4 border-amber-300 rounded-1.5 font-bold text-6xl">
           DevFlow
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

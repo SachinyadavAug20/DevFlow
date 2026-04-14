@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navigation/navbar";
 
 
 const inter = localFont({
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
         <body className="min-h-full flex flex-col">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Navbar/>
             {children}
           </ThemeProvider>
         </body>
