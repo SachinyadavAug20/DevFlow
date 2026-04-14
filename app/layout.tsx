@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const inter = localFont({
   src:"./fonts/interFont.ttf",
@@ -36,7 +40,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${inter.className} ${diff.variable} ${logofont.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", inter.className, diff.variable, logofont.variable, "font-sans", inter.variable)}
     >
         <body className="min-h-full flex flex-col">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
