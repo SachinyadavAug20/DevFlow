@@ -48,6 +48,8 @@
   --font-inter: var(--font-inter);
   --font-diff: var(--font-diff);
   --font-logofont: var(--font-logofont);
+   --bg-auth-dark: url("/images/auth-dark.png");
+   --bg-auth-light: url("/images/auth-light.png");
 }
 
 /*
