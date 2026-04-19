@@ -10,15 +10,15 @@ const SocialAuthForm = () => {
     " background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
   const handleSignIn = async (provider: "github" | "google" | "apple") => {
     try {
-      // if(provider==='apple'){
-      //   throw new Error("Not implemented");
-      // }
+      if(provider==='apple'){
+        toast.error("Not implemented yet", { position:"top-center",description:"apple auth is not implemented yet", });
+      }
       await signIn(provider,{
         callbackUrl: ROUTES.HOME,
       })
     } catch (error) {
       console.log(error);
-      toast.error(`Sign-in Failed!`, { position: "top-right" });
+      toast.error(`Sign-in Failed!`, { position: "top-right" ,description:`Error: ${error}`});
     }
   };
 
