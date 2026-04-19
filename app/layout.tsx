@@ -3,7 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
+import { Inter } from "next/font/google";
 
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const inter = localFont({
   src:"./fonts/interFont.ttf",
