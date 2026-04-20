@@ -5,7 +5,7 @@ import React from "react";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="flex min-h-screen min-w-full items-center justify-center bg-(image:--bg-auth-light) dark:bg-(image:--bg-auth-dark) bg-center bg-no-repeat bg-cover px-4 py-8">
-      <section className="light-border background-light800_dark200 shadow-light-100 min-w-full rounded-[10px] px-4 border py-10 sm:min-w-[50%] sm:px-8">
+      <section className="light-border background-light800_dark200 opacity-[98.9%] shadow-light-100 min-w-full rounded-[10px] px-4 border py-10 sm:min-w-[50%] sm:px-8">
         <div className="flex items-center justify-center gap-2">
           <Image
             src="images/site-logo.svg"

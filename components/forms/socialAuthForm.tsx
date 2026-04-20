@@ -7,7 +7,7 @@ import ROUTES from "@/constant/routes";
 
 const SocialAuthForm = () => {
   const buttonClass =
-    " background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
+    " background-dark200_light700 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
   const handleSignIn = async (provider: "github" | "google" | "apple") => {
     try {
       if(provider==='apple'){
@@ -23,8 +23,8 @@ const SocialAuthForm = () => {
   };
 
   return (
-    <div className="mt-10 flex flex-wrap gap-2.5">
-      <Button className={buttonClass} onClick={() => { handleSignIn("github"); }} >
+    <div className="mt-10 flex flex-wrap gap-2.5 opacity-100">
+      <Button className={buttonClass} onClick={() => { handleSignIn("github"); }}>
         <Image
           src="icons/github.svg"
           alt="Github"
