@@ -25,3 +25,7 @@ as of 19-4-2026 : Github and Google Auth
 as of 20-4-2026 : Email and password login form (sigin and signup)
 
 ![screenshot](Documentation/screenshots/6.png)  
+
+as of 20-4-2026 : Mobile Navbar
+
+![screenshot](Documentation/screenshots/7.png)  
