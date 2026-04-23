@@ -19,7 +19,12 @@ const NavLinks = ({isMobileNav=false}:{isMobileNav?:boolean}) => {
                 : 'text-dark300_light900'
               } flex items-center justify-start gap-4 bg-transparent p-4`}>
           <Image src={link.imgURL} alt={link.label} width={20} height={20} className={`${isActive ? "" : "invert-colors"}`}/>
+          { !isMobileNav &&
+          <p className={`${isActive ? 'base-bold max-lg:hidden' : 'base-medium max-lg:hidden'}`}>{link.label}</p>
+          }
+          { isMobileNav &&
           <p className={`${isActive ? 'base-bold' : 'base-medium'}`}>{link.label}</p>
+          }
         </Link>
       )
       return linkComponent
