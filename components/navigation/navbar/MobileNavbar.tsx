@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,8 +11,10 @@ import {
 import ROUTES from "@/constant/routes";
 import { Button } from "@/components/ui/button";
 import NavLinks from "./NavLinks";
+import { useSession } from "next-auth/react";
 
 const MobileNavbar = () => {
+  const session = useSession();
   return (
     <div>
       <Sheet>
@@ -47,7 +50,7 @@ const MobileNavbar = () => {
                 <NavLinks isMobileNav={true} />
               </section>
             </SheetClose>
-            <div className="flex flex-col gap-3">
+            {session.status==="unauthenticated" && <div className="flex flex-col gap-3">
               <SheetClose asChild>
                 <Link href={ROUTES.SIGN_IN}>
                   <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
@@ -62,7 +65,7 @@ const MobileNavbar = () => {
                   </Button>
                 </Link>
               </SheetClose>
-            </div>
+            </div>}
           </div>
         </SheetContent>
       </Sheet>
