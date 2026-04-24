@@ -7,6 +7,7 @@ const ROUTES = {
   JOBS:"/jobs",
   PROFILE:"/profile",
   ASKQUESTION:"/ask-question",
+  QUESTIONS:"/questions",
   TAGS:"/tags",
   FORGOT_PASSWORD: "/forgot-password",
   RESET_PASSWORD: "/reset-password",
