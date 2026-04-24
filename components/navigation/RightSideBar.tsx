@@ -12,14 +12,14 @@ const hotQuestion = [
 ];
 const popularTags = [
   {_id:"1",name:"React",NO_question:123},
-  {_id:"2",name:"Next",NO_question:123},
-  {_id:"3",name:"Node",NO_question:123},
-  {_id:"4",name:"JavaScript",NO_question:123},
-  {_id:"5",name:"TypeScript",NO_question:123},
-  {_id:"6",name:"Redux",NO_question:123},
-  {_id:"7",name:"MongoDB",NO_question:123},
-  {_id:"8",name:"Tailwind",NO_question:123},
-  {_id:"9",name:"Bootstrap",NO_question:123},
+  {_id:"2",name:"Next",NO_question:231},
+  {_id:"3",name:"Node",NO_question:143},
+  {_id:"4",name:"JavaScript",NO_question:297},
+  {_id:"5",name:"TypeScript",NO_question:122},
+  {_id:"6",name:"Redux",NO_question:12},
+  {_id:"7",name:"MongoDB",NO_question:23},
+  {_id:"8",name:"Tailwind",NO_question:12},
+  {_id:"9",name:"Bootstrap",NO_question:13},
 ]
 
 const RightSideBar = () => {
@@ -47,7 +47,7 @@ const RightSideBar = () => {
       <div className="mt-16">
         <h3 className="h3-bold text-dark200_light900">Popular Tags</h3>
         <div className="mt-7 flex w-full flex-col gap-4">
-          {popularTags.map((e)=>{
+          {popularTags.sort((a,b)=>b.NO_question-a.NO_question).map((e)=>{
             return(
               <TagCard key={e._id} _id={e._id} name={e.name} NO_question={e.NO_question} showCount={true} compact={true}/>
             )

@@ -1,5 +1,5 @@
-const page = ({params}:{pramas:{id:string}}) => {
-  const {id}=params;
+const page = async({params}:{pramas:{id:string}}) => {
+  const {id}=await params;
   return (
     <div>{id}</div>
   )

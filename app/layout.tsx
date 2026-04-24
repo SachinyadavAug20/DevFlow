@@ -46,6 +46,11 @@ const RootLayout=async({ children, }: Readonly<{ children: React.ReactNode; }>) 
         inter.variable,
       )}
     >
+    <head>
+    
+            <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    </head>
       <body className="min-h-full flex flex-col">
         <SessionProvider session={session}>
           <ThemeProvider
