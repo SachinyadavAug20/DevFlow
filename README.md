@@ -26,10 +26,14 @@ as of 20-4-2026 : Email and password login form (sigin and signup)
 
 ![screenshot](Documentation/screenshots/6.png)  
 
-as of 20-4-2026 : Mobile Navbar
+as of 23-4-2026 : Mobile Navbar
 
 ![screenshot](Documentation/screenshots/7.png)  
 
-as of 20-4-2026 : Leftsidebar and made it mobile,tablet and desktop responsive
+as of 23-4-2026 : Leftsidebar and made it mobile,tablet and desktop responsive
 
 ![screenshot](Documentation/screenshots/8.png)  
+
+as of 24-4-2026 : Rightsidebar which has top questions and popular tags
+
+![screenshot](Documentation/screenshots/9.png)  

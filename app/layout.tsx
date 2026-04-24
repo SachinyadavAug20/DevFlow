@@ -30,7 +30,9 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout=async({ children, }: Readonly<{ children: React.ReactNode; }>) =>{
+const RootLayout = async ({
+  children,
+}: Readonly<{ children: React.ReactNode }>) => {
   const session = await auth();
   return (
     <html
@@ -46,11 +48,13 @@ const RootLayout=async({ children, }: Readonly<{ children: React.ReactNode; }>) 
         inter.variable,
       )}
     >
-    <head>
-    
-            <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-    </head>
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <SessionProvider session={session}>
           <ThemeProvider
@@ -66,5 +70,5 @@ const RootLayout=async({ children, }: Readonly<{ children: React.ReactNode; }>) 
       </body>
     </html>
   );
-}
-export default RootLayout
+};
+export default RootLayout;
