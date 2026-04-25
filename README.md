@@ -37,3 +37,7 @@ as of 23-4-2026 : Leftsidebar and made it mobile,tablet and desktop responsive
 as of 24-4-2026 : Rightsidebar which has top questions and popular tags
 
 ![screenshot](Documentation/screenshots/9.png)  
+
+as of 25-4-2026 : URL search query management and Local search on questions implemented
+
+![](Documentation/gifs/1.gif)
