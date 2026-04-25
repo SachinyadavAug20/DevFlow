@@ -31,7 +31,7 @@ const LocalSearch = ({ imgSrc, placeholder, route, otherClasses, iconsPosition, 
       }
     },300);
     return ()=>clearTimeout(delayDebounceFn);
-  },[searchQuery]); // runs when searchQuery changes
+  },[searchQuery,searchParmas]); // runs when searchQuery changes
 
   return (
     <div
