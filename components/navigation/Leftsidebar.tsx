@@ -59,7 +59,7 @@ const Leftsidebar = () => {
               asChild
             >
               <Link href={ROUTES.SIGN_IN}>
-                <img
+                <Image
                   src={`${session.data.user?.image}`}
                   alt="account"
                   width={25}

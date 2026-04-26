@@ -41,3 +41,7 @@ as of 24-4-2026 : Rightsidebar which has top questions and popular tags
 as of 25-4-2026 : URL search query management and Local search on questions implemented
 
 ![](Documentation/gifs/1.gif)
+
+as of 25-4-2026 : Designed a question card
+
+![screenshot](Documentation/screenshots/10.png)  

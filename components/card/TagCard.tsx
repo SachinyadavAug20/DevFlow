@@ -6,7 +6,7 @@ import Link from "next/link";
 interface Props {
   _id: string;
   name: string;
-  NO_question: number;
+  NO_question?: number;
   showCount?: Boolean;
   compact?: Boolean;
 }
