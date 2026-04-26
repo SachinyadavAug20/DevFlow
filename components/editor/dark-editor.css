@@ -1,6 +1,9 @@
 @import url("@radix-ui/colors/tomato-dark.css");
 @import url("@radix-ui/colors/mauve-dark.css");
 
+.dark-editor .ProseMirror {
+  font-weight: 400 !important;
+}
 .dark .dark-editor {
   --accentBase: var(--tomato-1);
   --accentBgSubtle: var(--tomato-2);
