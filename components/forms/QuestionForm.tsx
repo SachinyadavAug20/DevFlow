@@ -1,32 +1,26 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Controller,
-  DefaultValues,
-  FieldValue,
-  Path,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { Controller, DefaultValues, FieldValue, Path, SubmitHandler, useForm, } from "react-hook-form";
 import { toast } from "sonner";
-import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import ROUTES from "@/constant/routes";
 import { AskQuestionSchema } from "@/lib/validation";
+import { useRef } from "react";
+import { MDXEditorMethods } from "@mdxeditor/editor";
+import dynamic from "next/dynamic";
+
+const Editor = dynamic(() => import('@/components/editor'), {
+  // Make sure we turn SSR off
+  ssr: false
+})
+
 
 const QuestionForm = () => {
+const editorred=useRef<MDXEditorMethods>(null)
+
   const form = useForm({
     resolver: zodResolver(AskQuestionSchema),
     defaultValues: {
@@ -87,7 +81,7 @@ const QuestionForm = () => {
                   Detailed explaination of your problem
                   <span className="text-primary-500">*</span>
                 </FieldLabel>
-                Editor
+                  <Editor editorRef={editorred} value={field.value} fieldchange={field.onChange}/>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
