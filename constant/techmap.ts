@@ -11,6 +11,7 @@ const specialCases: Record<string, string> = {
   "amazonwebservices": "amazonwebservices",
   aws: "amazonwebservices",
   next: "nextjs",
+  css:"css3",
   reactjs: "react",
   node: "nodejs",
   mongo: "mongodb",

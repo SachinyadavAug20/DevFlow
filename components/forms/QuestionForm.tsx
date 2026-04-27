@@ -11,6 +11,8 @@ import { AskQuestionSchema } from "@/lib/validation";
 import { useRef } from "react";
 import { MDXEditorMethods } from "@mdxeditor/editor";
 import dynamic from "next/dynamic";
+import {z} from "zod";
+import TagCard from "../card/TagCard";
 
 const Editor = dynamic(() => import('@/components/editor'), {
   // Make sure we turn SSR off
@@ -18,20 +20,52 @@ const Editor = dynamic(() => import('@/components/editor'), {
 })
 
 
+
 const QuestionForm = () => {
 const editorred=useRef<MDXEditorMethods>(null)
 
-  const form = useForm({
+  const form = useForm<z.infer<typeof AskQuestionSchema>>({
     resolver: zodResolver(AskQuestionSchema),
     defaultValues: {
       title: "",
       content: "",
-      Tags: [],
+      tags: [],
     },
   });
+  const handleInputTags=(e:React.KeyboardEvent<HTMLInputElement>,field:{value:string[]})=>{
+    if(e.key==="Enter"){
+      e.preventDefault();// privents the enter key from submitting the form
+      const tagInput=e.currentTarget.value.trim();
+      if(tagInput && tagInput.length<=15 && !field.value.includes(tagInput)){
+        form.setValue('tags',[...field.value,tagInput]);
+        e.currentTarget.value="";
+        form.clearErrors("tags");
+      }else if(tagInput.length>15){
+        form.setError('tags',{
+          type:"manual",
+          message:"Tag must be less than 15 characters",
+        })
+      }else if(field.value.includes(tagInput)){
+        form.setError("tags",{
+          type:"manual",
+          message:"Tag already exists"
+        })
+      }
+    }
+  }
+  const handleRemoveTag=(tag:string,field:{value:string[]})=>{
+    const newTags=field.value.filter((t)=>t!==tag)
+    form.setValue('tags',newTags);
+    if(newTags.length===0){
+      form.setError("tags",{
+        type:"manual",
+        message:"At least one tag is required"
+      })
+    }
+  }
 
-  const handleCreateQuestion = () => {
-    console.log();
+  const handleCreateQuestion = (data:z.infer<typeof AskQuestionSchema>) => {
+    console.log(data);
   };
 
   return (
@@ -93,7 +127,7 @@ const editorred=useRef<MDXEditorMethods>(null)
             )}
           />
           <Controller
-            name="Tags"
+            name="tags"
             control={form.control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -105,14 +139,18 @@ const editorred=useRef<MDXEditorMethods>(null)
                 </FieldLabel>
                 <div>
                   <Input
-                    {...field}
                     id="form-rhf-input-username"
                     aria-invalid={fieldState.invalid}
                     autoComplete={field.name}
                     className="paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 no-focus min-h-[56px] border"
                     placeholder="Add tags..."
+                    onKeyDown={(e)=>{handleInputTags(e,field)}}
                   />
-                  tags
+                  <div className="flex-start mt-2.5 flex-wrap gap-2.5">
+                  {field.value.length>0 &&  field.value.map((tag:string)=>{
+                    return <TagCard key={tag} _id={tag} name={tag} compact remove={true} isButton handleRemove={()=>{handleRemoveTag(tag,field)}}/>
+                  })}
+                  </div>
                 </div>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
@@ -131,6 +169,7 @@ const editorred=useRef<MDXEditorMethods>(null)
             disabled={form.formState.isSubmitted}
             className="primary-gradient !text-light-900 w-fit px-5 py-1"
           >
+
             {" "}
             Ask a question
           </Button>
