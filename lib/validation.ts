@@ -68,3 +68,15 @@ export const AskQuestionSchema = z.object({
     z.string().min(2,{message:"Tag must be at least 2 characters"}).max(25,{message:"Tag must be at most 25 characters"})
   ).min(1,{message:"At least one tag is required"}).max(5,{message:"Maximum of 5 tags allowed"})
 });
+
+export const UserSchema=z.object({ // making same as DB schema
+  name:z.string().min(1,{message:"Name is required"}).max(500,{message:"Name must be at most 500 characters"}),
+  username:z.string().min(3,{message:"Username must be at least 3 characters"}).max(1000,{message:"Username must be at most 1000 characters"}),
+  email:z.string().min(1,{message:"Email is required"}).email({message:"Please enter a valid email"}),
+  bio:z.string().optional(),
+  image:z.string().url({message:"Please enter a valid image URL"}).optional(),
+  location:z.string().optional(),
+  resumelink:z.string().url({message:"Please enter a valid resume URL"}).optional(),
+  portfolio:z.string().url({message:"Please enter a valid portfolio URL"}).optional(),
+  reputation:z.number().default(0).optional(),
+})
