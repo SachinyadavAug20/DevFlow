@@ -1,6 +1,7 @@
 import mongoose, { Mongoose } from "mongoose";
+import logger from "./logger";
 
-const MONGODB_URL = process.env.MONGODB_URL as string;
+const MONGODB_URL = process.env.MONGODB_URI as string;
 
 if (!MONGODB_URL) throw new Error("MONGODB_URL is not defined");
 
@@ -17,6 +18,7 @@ if (!cached) cached = global.mongoose = { conn: null, promise: null };
 
 const dbConnect = async () : Promise<Mongoose> => {
   if (cached.conn) {
+    logger.info("Using Mongoose cached connection");
     return cached.conn;
   }
   if (!cached.promise) {
@@ -25,11 +27,12 @@ const dbConnect = async () : Promise<Mongoose> => {
         dbName: "devflow",
       })
       .then((r) => {
-        console.log(r);
+        logger.info("Connected to mongoDB");
         return r;
       })
       .catch((error) => {
-        console.error("Error connecting to MongoDB", error);throw error;
+        logger.error("Error connecting to MongoDB", error);
+        throw error;
 
       });
   }
