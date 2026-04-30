@@ -43,7 +43,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   try {
     await dbConnect()
     const body=await req.json()
-    const validatedData=await UserSchema.partial().parse(body)
+    const validatedData=UserSchema.partial().parse(body)
     const updatedUser=await User.findOneAndUpdate({_id:id},validatedData,{new:true})
     if(!updatedUser) throw new NotFoundError("User")
     return NextResponse.json({sucess:true,data:updatedUser},{status:200});
