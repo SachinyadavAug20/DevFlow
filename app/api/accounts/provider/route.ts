@@ -22,4 +22,3 @@ export async function POST(req: Request) {
     return handleError(error, "api") as APIErrorResponse
   }
 }
-
