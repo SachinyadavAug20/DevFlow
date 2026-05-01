@@ -14,6 +14,7 @@ const ROUTES = {
   VERIFY_EMAIL: "/verify-email",
   DASHBOARD: "/dashboard",
   CREATE_POST: "/create-post",
+  SIGN_IN_WITH_OAUTH: "/signin-with-oauth",
 };
 export default ROUTES;
 

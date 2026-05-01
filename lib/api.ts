@@ -17,10 +17,16 @@
 import { IUser } from "@/dataBase/user.model";
 import { fetchHandler } from "./handlers/fetch";
 import { IAccount } from "@/dataBase/account.model";
+import { Provider } from "@radix-ui/react-toast";
+import { SignInWithOAuthParams } from "@/types/action";
+import ROUTES from "@/constant/routes";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/api";
 
 // if method not provided it will be GET
 export const api={
+  auth:{
+    oAuthSignIn:({user,provider,providerAccountId}:SignInWithOAuthParams)=>fetchHandler(`${API_BASE_URL}/auth${ROUTES.SIGN_IN_WITH_OAUTH}`,{method:"POST",body:JSON.stringify({user,provider,providerAccountId})}),
+  },
   user:{
     getAll:()=>fetchHandler(`${API_BASE_URL}/users`),
     getById:(id:string)=>fetchHandler(`${API_BASE_URL}/users/${id}`),
