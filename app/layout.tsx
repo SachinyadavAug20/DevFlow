@@ -24,7 +24,7 @@ const logofont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DevFlow",
+  title: "BaseCase",
   icons: {
     icon: "/images/site-logo.svg",
   },

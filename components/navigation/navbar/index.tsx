@@ -10,11 +10,11 @@ const Navbar = () => {
         <Image
           src="/images/site-logo.svg"
           alt="Devflow logo"
-          width={24}
-          height={24}
+          width={23}
+          height={23}
         />
         <p className="h2-bold font-logofont text-dark-100 dark:text-light-900 max-sm:hidden">
-          Dev<span className="text-primary-500">Flow</span>
+          Base<span className="text-primary-500">Case</span>
         </p>
       </Link>
       <p>Global Search</p>

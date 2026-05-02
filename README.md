@@ -1,4 +1,4 @@
-# Devflow 
+# BaseCase
 
 Stackoverflow for students to ask for help with coding.
 
@@ -53,6 +53,10 @@ as of 25-4-2026 : Made a ask question form using react-hook-form and MDX-Editor 
 as of 26-4-2026 : Completed Ask Question form
 
 ![screenshot](Documentation/screenshots/12.png)  
+
+as of 2-5-2026 : Blue theme and name
+
+![screenshot](Documentation/screenshots/13.png)  
 
 
 #### Todos

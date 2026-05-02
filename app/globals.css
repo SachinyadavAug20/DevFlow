@@ -7,23 +7,27 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary-100: #fff1e6;
-  --color-primary-500: #ff7000;
+  --basecase-blue-dark: #1D4ED8;    
+  --basecase-blue-main: #2563EB;    
+  --basecase-blue-light: #60A5FA; 
 
-  --color-dark-100: #000000;
-  --color-dark-200: #0f1117;
-  --color-dark-300: #151821;
-  --color-dark-400: #212734;
-  --color-dark-500: #101012;
+  --color-primary-100: #EFF6FF;     
+  --color-primary-500: var(--basecase-blue-dark); 
 
-  --color-light-400: #858ead;
-  --color-light-500: #7b8ec8;
-  --color-light-700: #dce3f1;
-  --color-light-800: #f4f6f8;
-  --color-light-850: #fdfdfd;
-  --color-light-900: #ffffff;
+  --color-dark-100: #000000;       
+  --color-dark-200: #0A0C10;       
+  --color-dark-300: #12151B;        
+  --color-dark-400: #1D2129;       
+  --color-dark-500: #101012;       
 
-  --color-link-100: #1da1f2;
+  --color-light-400: #6B728E;       
+  --color-light-500: #7C89A3;       
+  --color-light-700: #E0E7FF;       
+  --color-light-800: #F3F4F6;       
+  --color-light-850: #F9FAFB;       
+  --color-light-900: #FFFFFF;       
+
+  --color-link-100: var(--basecase-blue-main); 
 
   --radius-2: 8px;
   --radius-1_5: 6px;
@@ -283,37 +287,38 @@
   @apply shadow-light-100 dark:shadow-none;
 }
 
+
+
+
 @utility primary-gradient {
-  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  background: linear-gradient(129deg, #2563EB 0%, #60A5FA 100%);
 }
 
 @utility dark-gradient {
   background: linear-gradient(
     232deg,
-    rgba(23, 28, 35, 0.41) 0%,
-    rgba(19, 22, 28, 0.7) 100%
-  );
-  background: linear-gradient(
-    232deg,
-    rgba(23, 28, 35, 0.41) 0%,
-    rgba(19, 22, 28, 0.7) 100%
+    rgba(15, 17, 23, 0.6) 0%,
+    rgba(10, 12, 16, 0.9) 100%
   );
 }
 
 @utility light-gradient {
   background: linear-gradient(
     132deg,
-    rgba(247, 249, 255, 0.5) 0%,
-    rgba(229, 237, 255, 0.25) 100%
+    rgba(239, 246, 255, 0.8) 0%,
+    rgba(219, 234, 254, 0.4) 100%
   );
 }
 
 @utility primary-text-gradient {
-  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  background: linear-gradient(129deg, #1D4ED8 0%, #60A5FA 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+
 
 @utility flex-center {
   @apply flex justify-center items-center;
