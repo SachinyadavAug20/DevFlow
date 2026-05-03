@@ -22,6 +22,12 @@ export const SignInSchema = z.object({
 });
 
 export const SignUpSchema = z.object({
+  name: z
+    .string()
+    .min(1, { message: "Name is required" })
+    .max(50, { message: "Name must be at most 50 characters" })
+    .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces."),
+
   username: z
     .string()
     .min(3, { message: "Username must be at least 3 characters" })
@@ -30,11 +36,6 @@ export const SignUpSchema = z.object({
       /^[a-zA-Z0-9_]+$/,
       "Username can only contain letters, numbers, and underscores.",
     ),
-  name: z
-    .string()
-    .min(1, { message: "Name is required" })
-    .max(50, { message: "Name must be at most 50 characters" })
-    .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces."),
 
   email: z
     .string()

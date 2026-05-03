@@ -16,7 +16,7 @@
 
 import { IUser } from "@/dataBase/user.model";
 import { fetchHandler } from "./handlers/fetch";
-import { IAccount } from "@/dataBase/account.model";
+import { IAccount} from "@/dataBase/account.model";
 import { Provider } from "@radix-ui/react-toast";
 import { SignInWithOAuthParams } from "@/types/action";
 import ROUTES from "@/constant/routes";

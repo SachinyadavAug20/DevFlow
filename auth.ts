@@ -2,12 +2,36 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import NextAuth from "next-auth";
 import { api } from "./lib/api";
-import { Provider } from "@radix-ui/react-toast";
 import { ActionResponse } from "./types/global";
-import { IAccount } from "./dataBase/account.model";
+import { IAccount, IAccoutDoc} from "./dataBase/account.model";
+import { SignInSchema } from "./lib/validation";
+import { IUserDoc } from "./dataBase/user.model";
+import bcrypt from "bcryptjs";
+import Credentials from "next-auth/providers/credentials"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [GitHub, Google],
+  providers: [GitHub, Google,Credentials({
+    async authorize(credentials) {
+      const validateField=SignInSchema.safeParse(credentials);
+      if(validateField.success){
+        const {email,password}=validateField.data;
+        const {data:existingAccount}=(await api.account.getByProviderAccountId(email)) as ActionResponse<IAccoutDoc>
+        if(!existingAccount) return null;
+        const {data:existingUser}=(await api.user.getById(existingAccount.userId.toString())) as ActionResponse<IUserDoc>
+        if(!existingUser) return null;
+        const isValidPassword=await bcrypt.compare(password,existingAccount.password!);
+        if(isValidPassword){
+          return {
+            id:existingUser.id,
+            name:existingUser.name,
+            email:existingUser.email,
+            image:existingUser.image
+          }
+        }
+      }
+        return null;
+    }
+  })],
   callbacks: {
     // do after oauth
     async session({ session, token }) {

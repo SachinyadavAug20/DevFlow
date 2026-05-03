@@ -1,3 +1,4 @@
+import { Document } from "mongoose";
 import { model, Schema } from "mongoose";
 import { models } from "mongoose"; // gives all instance of model already created
 
@@ -12,6 +13,8 @@ export interface IUser {
   resumelink?: string;
   reputation?: number;
 }
+
+export interface IUserDoc extends IUser, Document {};
 
 const UserSchema = new Schema(
   {

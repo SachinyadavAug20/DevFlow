@@ -52,7 +52,7 @@ const Leftsidebar = () => {
             </Button>
           </div>
         )}
-        {session.status === "authenticated" && (
+        {/*session.status === "authenticated" && (
           <div className="flex flex-col gap-2 justify-center items-center">
             <Button
               className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none background-light900_dark200! text-dark500_light700!"
@@ -82,7 +82,7 @@ const Leftsidebar = () => {
               </form>
             </div>
           </div>
-        )}
+        )*/}
       </div>
     </section>
   );
